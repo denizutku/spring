@@ -14,12 +14,16 @@ public class UserController {
 
     @Autowired
     private UserService serviceUser;
+    @Autowired
+    private PostService postService;
 
 
     @RequestMapping("/")
     public String home(Model model) {
-        List<User> listUsers = serviceUser.listAll();
-        model.addAttribute("listUsers", listUsers);
+        List<User> userList = serviceUser.listAll();
+        List<Post> postList = postService.listAllPosts();
+        model.addAttribute("postList", postList);
+        model.addAttribute("userList", userList);
         return "index";
     }
 

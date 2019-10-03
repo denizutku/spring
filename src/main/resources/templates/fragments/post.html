@@ -1,0 +1,9 @@
+<div th:fragment="postlist" xmlns:th="http://www.thymeleaf.org/">
+    <div class="starter-template panel" th:each="post : ${listPosts}" >
+        <div class="panel-heading">
+            <h1><a th:text="${post.title}" th:href="@{'/post/' + ${post.id}}">Title</a></h1>
+        </div>
+        <h3 class="panel-body" th:text="${post.input}">Body</h3>
+        <br></br>
+    </div>
+</div>

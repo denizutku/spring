@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+>
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+<th:block th:include="/fragments/navbar"></th:block>
+
+<div class="container-fluid">
+    <th:block layout:fragment="content"/>
+    <th:block layout:fragment="sidebar"/>
+</div>
+
+
+<th:block th:include="commons/javascript_url ::  javascript_url"></th:block>
+</body>
+</html>
