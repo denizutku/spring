@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+<head>
+    <div th:fragment="navbar" class="navbar navbar-inverse navbar-static-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse"
+                        data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                        class="icon-bar"></span>
+                </button>
+                <a class="brand" href="./">spring blog project</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class=""><a href="./">Home</a></li>
+                        <li class=""><a href="./posts">Posts</a></li>
+                        <li class=""><a href="./addpost">New Posts</a></li>
+                        <li class=""><a href="./login.html">Users</a></li>
+                        <li class=""><a href="./login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</head>
+
+<body>
+
+
+    <div class="starter-template panel" th:each="post : ${listPosts}">
+        <div class="panel-heading">
+            <h1><a th:text="${post.title}" th:href="@{'/post/' + ${post.id}}">Title</a></h1>
+        </div>
+        <h3 class="panel-body" th:text="${post.input}">Body</h3>
+        <br></br>
+    </div>
+
+
+<th:block th:include="commons/javascript_url ::  javascript_url"></th:block>
+</body>
+</html>
