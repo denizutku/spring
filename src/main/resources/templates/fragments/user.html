@@ -1,0 +1,25 @@
+<div th:fragment="userlist" xmlns:th="http://www.thymeleaf.org/">
+    <div class="card">
+        <div class="card-block">
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="user : ${userList}">
+                    <td th:text="${user.id}">User ID</td>
+                    <td th:text="${user.username}">Username</td>
+                    <td th:text="${user.password}">Password</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <a th:href="@{/adduser}"  class="btn btn-primary">New Person</a>
+</div>

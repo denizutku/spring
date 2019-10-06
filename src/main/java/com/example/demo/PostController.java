@@ -17,8 +17,8 @@ public class PostController {
 
     @RequestMapping("/posts")
     public String listPosts(Model model) {
-        List<Post> listPosts = postService.listAllPosts();
-        model.addAttribute("listPosts", listPosts);
+        List<Post> postList = postService.listAllPosts();
+        model.addAttribute("listPosts", postList);
         return "posts";
     }
 

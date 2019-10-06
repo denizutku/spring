@@ -20,10 +20,8 @@ public class UserController {
 
     @RequestMapping("/")
     public String home(Model model) {
-        List<User> userList = serviceUser.listAll();
         List<Post> postList = postService.listAllPosts();
         model.addAttribute("postList", postList);
-        model.addAttribute("userList", userList);
         return "index";
     }
 
@@ -39,6 +37,14 @@ public class UserController {
         serviceUser.save(user);
 
         return "redirect:/";
+    }
+
+    @RequestMapping("/users")
+    public String users(Model model) {
+        List<User> userList = serviceUser.listAll();
+        model.addAttribute("userList", userList);
+        return "users";
+
     }
 
 
