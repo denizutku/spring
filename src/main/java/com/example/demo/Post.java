@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -18,7 +20,9 @@ public class Post {
     private String input;
     @Column(name = "writer")
     private String writer;
-    @Column(name = "date")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date", nullable = false, updatable = false)
+    @CreationTimestamp
     private Date date;
 
     public Post() {
