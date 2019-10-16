@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -40,7 +41,14 @@ public class PostController {
     public String deletePost(@PathVariable(name = "id") Long id){
         postService.deletePost(id);
         return "redirect:/";
+    }
 
+    @RequestMapping(value = "/edit/{id}")
+    public ModelAndView editPost(@PathVariable(name = "id") Long id){
+        ModelAndView mav = new ModelAndView("edit_post");
+        Post post = postService.get(id);
+        mav.addObject("addPost", post);
+        return mav;
     }
 
 
